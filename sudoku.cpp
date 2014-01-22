@@ -26,7 +26,6 @@ void Sudoku::init(int level){
 
 void Sudoku::play(int level){
     int x,y,val;
-    std::string buf;
 
     init(level);
 
@@ -34,7 +33,6 @@ void Sudoku::play(int level){
         std::cout<<"zapelniono: "<<board.counter()<<"\n";
         board.print();
         
-        std::cin>>buf;
         std::cin>>x;
         std::cin>>y;
         std::cin>>val;
