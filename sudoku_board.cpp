@@ -106,15 +106,36 @@ int SudokuBoard::get(int x, int y) const{
 /* prints the board
  * sep - separator
  */
-void SudokuBoard::print(string sep) const{
+void SudokuBoard::print(string sep,SudokuBoard noneditable) const{
     
-    std::cout<<"___________________\n";
+    string mysep1=sep,mysep2=sep;
+    string format="";
+
+            
+    std::cout<<"##Y--0--1--2-----3--4--5-----6--7--8--#\n";
+    std::cout<<"X##==v==v==v=====v==v==v=====v==v==v==#\n";
     for(int i=0; i<9; i++){
-        for(int j=0; j<9; j++)
-            std::cout<<sep<<get(i,j);
-    std::cout<<sep<<"#\n";
-    }
-    std::cout<<"####################\n";
+        std::cout<<i<<"># ";
+        for(int j=0; j<9; j++){
+            if(noneditable.get(i,j)!=0){
+                mysep1="[";
+                mysep2="]";
+            }
+            else 
+                mysep2=mysep1=sep;
+
+            if(!(j%3) && j!=0) 
+                format=" | ";
+            else 
+                format="";
+            std::cout<<format<<mysep1<<get(i,j)<<mysep2;
+            }
+        std::cout<<" #"<<std::endl;
+        if(i==2 || i==5)
+            std::cout<<"###-----------+-----------+-----------#\n";
+        }
+    std::cout<<"###===================================#\n";
+    std::cout<<"\n[ X Y VALUE ]> ";
 }
 
 bool SudokuBoard::isValid(void) const {

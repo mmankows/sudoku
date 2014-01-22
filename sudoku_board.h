@@ -26,7 +26,8 @@ public:
     int  get(int x, int y) const;
     bool isFull(void) const { return (counter()==81);} //all 81 fields filled
     bool isValid(void) const;
-    void print(string sep="|") const;
+    void print(string sep=" ",SudokuBoard noneditable=SudokuBoard()) const; //if noneditable board pattern specified
+                                                                   //prints some fields in specil way
 
 };
 
