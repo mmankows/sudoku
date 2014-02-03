@@ -1,4 +1,0 @@
-sudoku
-======
-
-Sudoku console game
